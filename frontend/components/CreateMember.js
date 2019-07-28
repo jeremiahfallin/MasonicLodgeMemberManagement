@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Error from "./ErrorMessage";
 import { Query, Mutation } from "react-apollo";
 import gql from "graphql-tag";
-import Table from "./styles/Table";
 import Router from "next/router";
 import Form from "./styles/Form";
 import faker from "faker";
