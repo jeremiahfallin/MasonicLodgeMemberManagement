@@ -123,7 +123,7 @@ class UpdateMember extends Component {
           return (
             <Mutation mutation={UPDATE_MEMBER_MUTATION} variables={this.state}>
               {(updateMember, { loading, error }) => (
-                <Form onSubmit={e => this.updateMember(e, updateMember)}>
+                <Form onSubmit={e => {if(confirm('Are you sure you want to update?')) {this.updateMember(e, updateMember)}}}>
                   <Error error={error} />
                   <fieldset disabled={loading} aria-busy={loading}>
                     <label htmlFor="firstName">
@@ -168,7 +168,7 @@ class UpdateMember extends Component {
                         id="birthDate"
                         name="birthDate"
                         placeholder="Birth Date"
-                        defaultValue={data.member.birthDate.slice(0, 10)}
+                        defaultValue={data.member.birthdate && data.member.birthDate.slice(0, 10)}
                         onChange={this.handleChange}
                       />
                     </label>
